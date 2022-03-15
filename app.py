@@ -1,6 +1,6 @@
 """Flask app for Cupcakes"""
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 from models import db, connect_db, Cupcake
 
 app = Flask(__name__)
@@ -69,3 +69,10 @@ def delete_cupcake(cupcake_id):
     db.session.delete(cupcake)
     db.session.commit()
     return jsonify(message=f"deleted {cupcake.flavor} cupcake")
+
+
+@app.route("/")
+def home_page():
+    """display home page"""
+
+    return render_template("index.html")
