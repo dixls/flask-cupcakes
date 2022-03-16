@@ -5,16 +5,17 @@
 {% block content %}
 <div class="container" id="content">
     <h2 class="display-3">Cupcakes!</h2>
-    <form action="/api/cupcakes" method="post" class="m-2">
+    <form action="#" class="m-2" id="cupcakeForm">
         <div class="row">
-            {% for field in form %}
+            {{ form.hidden_tag() }}
+            {% for field in form 
+                if field.widget.input_type != 'hidden' %}
             <div class="col">
-                {{field.label(class_="form-label")}}
                 {{field(class_="form-control")}}
             </div>
             {% endfor %}
             <div class="col">
-                <button class="btn btn-primary">Submit</button>
+                <button class="btn btn-primary" name="btn" id="cupcakeSubmit">Submit</button>
             </div>
         </div>
     </form>

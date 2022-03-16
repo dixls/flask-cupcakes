@@ -9,6 +9,7 @@ app.config["SQLALCHEMY_ECHO"] = False
 
 # Make Flask errors be real errors, rather than HTML pages with error info
 app.config["TESTING"] = True
+app.config["WTF_CSRF_ENABLED"] = False
 
 db.drop_all()
 db.create_all()
