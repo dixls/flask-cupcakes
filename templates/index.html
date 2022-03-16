@@ -4,7 +4,21 @@
 
 {% block content %}
 <div class="container" id="content">
-    <div class="row" id="cupcakeList">
+    <h2 class="display-3">Cupcakes!</h2>
+    <form action="/api/cupcakes" method="post" class="m-2">
+        <div class="row">
+            {% for field in form %}
+            <div class="col">
+                {{field.label(class_="form-label")}}
+                {{field(class_="form-control")}}
+            </div>
+            {% endfor %}
+            <div class="col">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+    <div class="row m-3" id="cupcakeList">
         
     </div>
 </div>

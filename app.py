@@ -2,6 +2,7 @@
 
 from flask import Flask, jsonify, render_template, request
 from models import db, connect_db, Cupcake
+from forms import AddCupcakeForm
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///cupcakes"
@@ -75,4 +76,6 @@ def delete_cupcake(cupcake_id):
 def home_page():
     """display home page"""
 
-    return render_template("index.html")
+    form = AddCupcakeForm()
+
+    return render_template("index.html", form=form)
